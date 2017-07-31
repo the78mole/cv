@@ -1,0 +1,223 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[sans,11pt,a4paper]{moderncv}
+
+% moderncv themes
+%\moderncvtheme[blue]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+%\moderncvtheme[grey]{classic}                % idem
+\moderncvtheme[blue]{casual}                % idem
+
+% character encoding
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}							
+\usepackage[utf8]{inputenc}
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Daniel}
+\familyname{Glaser}
+\title{Lebenslauf}               % optional, remove the line if not wanted
+\address{Drausnickstraße 23}{91052 Erlangen}    % optional, remove the line if not wanted
+\mobile{+49 176 21103885}                    % optional, remove the line if not wanted
+\phone{+49 9131 9333382}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{glaser@chaintronics.com}                      % optional, remove the line if not wanted
+%\homepage{homepage (optional)}                % optional, remove the line if not wanted
+\extrainfo{geb. 20.12.1978, Werneck} % optional, remove the line if not wanted
+\photo[140pt]{../Bewerbungsbilder/Bewerbungsbild_zugeschnitten}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Berufserfahrung}
+
+\cventry{11/11--03/14}{Geschäftsführer}{Gesellschafter}{Erlangen}{beECO GmbH}%
+{\begin{itemize}
+	\item Hardwareentwicklung, IT-Infrastruktur, Marketing \& Vertrieb
+\end{itemize}}
+
+\cventry{03/12--02/14}{Angestellter}{Wissenschaftlicher Mitarbeiter, Stipendiat}{Erlangen}{Lehrstuhl für Sensorik LSE, Friedrich-Alexander-Universität Erlangen-Nürnberg}%
+{\begin{itemize}
+	\item Förderprogramm FLÜGGE-Bayern (Existenzgründung, Projekt beECO)
+	\item Betreuung von Studentischen Arbeiten
+\end{itemize}}
+
+\cventry{03/11--02/12}{Stipendiat}{Selbstständiger}{Erlangen}{Lehrstuhl für Sensorik LSE, Friedrich-Alexander-Universität Erlangen-Nürnberg}%
+{\begin{itemize}
+	\item EXIST-Gründerstipendium (Projekt ambience, später beECO)
+\end{itemize}}
+
+\cventry{07/03--10/11}{Einzelunternehmer}{Selbstständiger}{Erlangen}{}{Konzeptionierung und Entwicklung von Hard- und Software%
+\begin{itemize}
+	\item FPGA-Entwicklung in VHDL und zugehöriger Hardware
+	\item Entwicklung eingebetteter Mikrocontrollersysteme (AVR)
+	\item Entwurf von analogen, digitalen und mixed-signal Schaltungen
+	\item Konzeptionierung und Implementierung vernetzter Mikrocontroller-Systeme
+	\item Einrichtung eingebetteter Linux-Systeme
+	\begin{itemize}
+		\item VPN-Gateway (OpenVPN)
+		\item Datenerfassung und -speicherung
+		\item Grafische Benutzerschnittstellen
+	\end{itemize}
+	\item Wartung und Inbetriebnahme bühnentechnischer Anlagen
+	\item Betreuung von Linux-Servern
+\end{itemize}}
+
+\cventry{12/07--12/10}{Angestellter}{Wissenschaftlicher Mitarbeiter, Doktorand}{Erlangen}{Lehrstuhl für Zuverlässige Schaltungen und Systeme LZS (ehem. LRS), Friedrich-Alexander-Universität Erlangen-Nürnberg}%
+{\begin{itemize}
+	\item Forschung im Projekt OKTOPUS
+	\begin{itemize}
+		\item Organisation des Arbeitspakets Ressourcenplanung und Modellierung
+		\item Entwicklung eines Konzepts zur systemunabhängigen Testbeschreibung
+		\item Modellierung und Simulation des Prüflings, der Schnittstellen und des Testsystems
+		\item Ressourcenplanung und Testsynthese
+	\end{itemize}
+	\item Lehre
+	\begin{itemize}
+		\item Betreuung von neun Studien-, Diplom- und Bachelorarbeiten
+		\item Betreuung des Modellierungs- und Simulations-Praktikums
+	\end{itemize}
+\end{itemize}}
+
+\cventry{06/07--10/07}{Student}{Wissenschaftliche Hilfskraft}{Erlangen}{Lehrstuhl für Rechnergestützten Schaltungsentwurf LRS, Friedrich-Alexander-Universität Erlangen-Nürnberg}{%
+\begin{itemize}
+	\item Aufsetzen eines Halbleitertestpraktikums
+	\begin{itemize}
+		\item Entwicklung einer Hardware (Analogfrontend, ADC/DAC, Power, FPGA, Mikrocontroller)
+		\item VHDL-Entwicklung zur Emulation verschiedener Defekte in AD-Umsetzer
+		\item Programmierung des eingebetteten Mikrocontrollers zur Steuerung des FPGA
+		\item Analog- und Digital-Schaltungsentwurf
+		\item Entwicklung eines Testprogramms auf Credence SZ Testsystem
+	\end{itemize}
+\end{itemize}}
+
+\cventry{06/04--05/07}{Student}{Wissenschaftliche Hilfskraft}{Erlangen}{Fraunhofer IIS, Bildsensorik}{Entwicklung von Hard- und Software, VHDL%
+\begin{itemize}
+	\item FPGA-Entwicklung in VHDL und zugehöriger Hardware
+	\item Programmierung eingebetteter Mikrocontrollersysteme (ARM, PowerPC)
+	\item Algorithmenentwicklung in C und Implementierung in VHDL
+	\item Analog- und Digital-Schaltungsentwurf
+\end{itemize}}
+
+\cventry{2000--2003 (Ferienzeiten)}{Ferienarbeiter}{Facharbeiter, Energieelektroniker}{Lohr}{Bosch Rexroth AG}%
+{\begin{itemize}
+	\item Bühnentechnische Steuerungen aufbauen und testen
+	\item Wartung, Reperatur und Inbetriebnahme bühnentechnischer Anlagen
+\end{itemize}}
+
+%%%%%%%%%%%%%%%%%%
+\section{Diplomarbeit}
+\cvline{Titel}{\emph{Entwurf einer eingebetteten Architektur zur generischen und quelloffenen Dekodierung von H.264 und HE-AAC Datenströmen, die auf einem DVB-System basieren}}
+\cvline{Betreuer}{Prof. Dr.-Ing. Heinz Gerhäuser, Dipl.-Ing. Christian Forster (LIKE, Uni-Erlangen)}
+\cvline{}{Dipl.-Ing. Simon Sudler, Dipl.-Ing. Frank Burkhardt (Fraunhofer IIS)}
+
+%%%%%%%%%%%%%%%%%%
+\section{Studienarbeit}
+\cvline{Titel}{\emph{Ausarbeitung eines Praktikums zur Vorlesung Architekturen Digitaler Signalverarbeitung}}
+\cvline{}{Hardwareentwurf, VHDL-Programmierung, Simulation und
+Inbetriebnahme}
+\cvline{Betreuer}{Prof. Dr.techn. Mario Huemer, Dipl.-Ing. Alexander Kölpin}
+
+%%%%%%%%%%%%%%%%%%
+\section{Studium}
+\cventry{10/03--11/07}{Student}{Friedrich-Alexander-Universität Erlangen-Nürnberg}{Erlangen}{Diplom}{Ingenieur Elektrotechnik (Mikroelektronik)}
+
+%%%%%%%%%%%%%%%%%%
+\section{Zivildienst}
+\cventry{09/02--08/03}{Zivildienstleistender}{Bayerisches Rotes Kreuz, Kreisverband Main-Spessart}{Gemünden}{Beschädigtenfahrdienst}{}
+
+%%%%%%%%%%%%%%%%%%
+\section{Schulbildung \& Ausbildung}
+\cventry{09/00--07/02}{Schüler}{Berufsoberschule}{Aschaffenburg}{Fachgebundenes Abitur}{Technischer Zweig}
+\cventry{09/97--07/00}{Auszubildender}{Mannesmann Rexorth AG}{Lohr}{Energieelektroniker}{Fachrichtung Betriebstechnik} 
+
+%\section{Freiwillige \& Ehrenamtliche Tätigkeiten}
+%\cventry{11/03--12/11}{Administrator}{Studentenwohnheim Ratiborer Straße}{Erlangen}{}{Benutzerverwaltung, Support, Linux Server- und Netzwerkbetreuung}
+
+%%%%%%%%%%%%%%%%%%
+\section{Sprachkenntnisse}
+\cvlanguage{Deutsch}{Muttersprache}{}
+\cvlanguage{Englisch}{verhandlungssicher}{}
+
+%%%%%%%%%%%%%%%%%%
+\section{EDV-Kenntnisse}
+\cvline{Betr.-Syst.}{Windows, Unix (Linux, Solaris), Mac OS X; Embedded: Linux, picoOS}
+\cvline{Dienste}{MySQL, Apache, Samba, Subversion, Maven, Jenkins, OpenVPN, Tomcat, u.a.}
+\cvline{Office}{MS Office (inkl. VBA), iWork, OpenOffice/LibreOffice, LaTeX, Scribus}
+\cvline{SW-Entw.}{Java (Eclipse PDE, EMF,...), C, C++, PHP, Bash, LabView, u.a.}
+\cvline{Elektrotechnik}{VHDL (Xilinx ISE, ModelSim, Lattice ispLEVER), SystemC (AMS), Eagle, Target!3001, LTspice, Pspice, u.a.}
+
+%%%%%%%%%%%%%%%%%%
+%\section{Patente}
+%\cvline{in Prüfung}{Bestimung des Durchflusses eines Mediums durch ein Gefäß}
+
+%%%%%%%%%%%%%%%%%%
+\section{Veröffentlichungen}
+\cvline{IUS'12}{\small Simultaneous determination of speed of sound and sample thickness utilizing coded excitation}
+\cvline{SENSOR'11}{\small Utilizing CDMA Techniques to Improve Ultrasound Based Distance Measurements}
+\cvline{VIP'10}{\small Themenkreis Virtual Test und automatische Testplangenerierung aus ATML}
+%\cvline{TuZ'10}{\small Standardized Characterisation of Device Power Supplies for Automated Test Generation and Simulation}
+%\cvline{Analog'10}{\small Standardverfahren zur Selbstcharakterisierung und Modellparametrierung von \newline{} Prüflingsspannungsversorgungen in Testsystemen}
+\cvline{Analog'10}{\small Standardized Method for Self-Characterization and Model Parametrisation of \newline{} Device Power Supplies in Test Environments}
+\cvline{ITC'09}{\small The Best of Both Worlds: Merging the Benefits of Rack\&Stack and Universal ATE}
+\cvline{ZuE'09}{\small Increasing Test Quality and Device Reliability by Test Simulation}
+\cvline{ZuE'09}{\small Optimales, skalierbares Ressourcenmanagement für \newline{}modulare, gemischt analog-digitale Testsysteme}
+\cvline{BMAS'09}{\small Mixed-Signal Test Development using Open Standard Modeling and Description Languages}
+\cvline{\footnotesize AUTOTEST'09}{\small Bridge the Gap between Simulation and Test: An OSA-Compliant Virtual Test Environment}
+\cvline{DATE'09}{\small A Novel Approach to Entirely Integrate Virtual Test into Test Development Flow}
+\cvline{TuZ'09}{\small Vollständige Integration des virtuellen Tests in den Entwurfsprozess integrierter Schaltungen}
+
+%%%%%%%%%%%%%%%%%%
+\section{Vereine \& Verbände}
+\cvline{VDE}{Verband der Elektrotechnik Elektronik Informationstechnik e.V., \newline{}Informationstechnische Gesellschaft (ITG)}
+\cvline{DELUG}{Deutsche Linux User Group}
+
+%%%%%%%%%%%%%%%%%%
+\section{Interessen}
+\cvline{}{Schaltungsentwurf, Freie Software, handwerkliche Tätigkeiten, Heimwerken}
+\cvline{}{Fahrrad fahren, Beach-Volleyball, Billard, Bergwandern, Kochen, Lesen}
+
+% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}   % 'publications' is the name of a BibTeX file
+
+\end{document}
+
+
+%% end of file `template_en.tex'.

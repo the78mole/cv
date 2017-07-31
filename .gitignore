@@ -1,0 +1,7 @@
+*.pdf
+*.aux
+*.log
+*.synctex.gz
+*.SyncTemp
+*.tcp
+*.out
