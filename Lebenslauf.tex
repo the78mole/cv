@@ -38,7 +38,7 @@
 \email{glaser@chaintronics.com}                      % optional, remove the line if not wanted
 %\homepage{homepage (optional)}                % optional, remove the line if not wanted
 \extrainfo{geb. 20.12.1978, Werneck} % optional, remove the line if not wanted
-\photo[140pt]{Bewerbungsbild_zugeschnitten}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+\photo[140pt]{daniel-profil}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
 %\quote{Some quote (optional)}                 % optional, remove the line if not wanted
 
 % to show numerical labels in the bibliography; only useful if you make citations in your resume
@@ -59,27 +59,15 @@
 
 \section{Berufserfahrung}
 
-\cventry{seit 03/23}{Senior Software Expert}{Angestellter}{Erlangen}{Elektrobit Automotive GmbH}%
-{
-\begin{itemize}
-	\item TODO
-\end{itemize}
-}
-
-\cventry{08/21-02/23}{Projektleiter Produktentwicklung}{Angestellter}{Nürnberg}{Landis+Gyr GmbH}%
-{
-\begin{itemize}
-	\item Leitung von Wärmemengenzähler-Entwicklungsprojekten
-	\item Leitung von Backend-Projekten (z.B. PKI)
-	\item Schnittstelle zu Dienstleistern/Lieferanten (externe Entwicklung)
-	\item Schnittstelle zu Entwicklungspartnern (gemeinsame Kundenprojekte)
-	\item Interner Ansprechpartner Software-Tooling (Projektplanung)
-\end{itemize}
-}
+\cventry{seit 03/23}{Senior Expert}{Angestellter}{Erlangen}{Elektrobit Automotive GmbH}%
+{\begin{itemize}
+	\item Aufbau und Betrieb von Entwicklungshardware für Fernzugriff (Embedded Linux)
+	\item Implementierung und Wartung einer Fernverwaltungssoftware (Web-basiert) für Remote-Targets
+	\item Automatisierung der IT-Umgebung mit Ansible
+\end{itemize}}
 
 \cventry{seit 04/18}{Gesellschafter-Geschäftsführer}{}{Erlangen}{BizzMark UG (haftungsbeschränkt)}%
-{
-\begin{itemize}
+{\begin{itemize}
 	\item Beratung in den Bereichen
 	\begin{itemize}
 		\item ERP, Prozessautomatisierung, IT-Systeme (Start-Ups \& kleinere Unternehmen)
@@ -88,10 +76,16 @@
 		\item Architektur und Test von Embedded Hard- \& Software
 	\end{itemize}
 	\item Entwicklungsdienstleistungen Hard-, Soft- \& Firmware, Web-Applikationen \& Backend
-\end{itemize}
-}
+\end{itemize}}
 
-
+\cventry{08/21-02/23}{Projektleiter Produktentwicklung}{Angestellter}{Nürnberg}{Landis+Gyr GmbH}%
+{\begin{itemize}
+	\item Leitung von Wärmemengenzähler-Entwicklungsprojekten
+	\item Leitung von Backend-Projekten (z.B. PKI)
+	\item Schnittstelle zu Dienstleistern/Lieferanten (externe Entwicklung)
+	\item Schnittstelle zu Entwicklungspartnern (gemeinsame Kundenprojekte)
+	\item Interner Ansprechpartner Software-Tooling (Projektplanung)
+\end{itemize}}
 
 \cventry{05/18--07/21}{Teamleiter \& Embeddedentwickler}{Angestellter}{Fürth}{Dommel GmbH}%
 {\begin{itemize}
@@ -124,9 +118,9 @@
 	\item Aufbau einer CI-Toolchain für Embedded System \glqq digitale Straßenkarte\grqq (Jenkins, JUnit)
 	\item Einführung agiler Entwicklungs-Methoden für Projekt \glqq digitale Straßenkarte\grqq (SCRUM)
 	\item Entwicklung eines CA-Frontends für Verwaltung und Erstellung von Zertifikaten (Bootstrap)
-	\item Aufbau eines Cert-Service für Device-Zertifikate (\textbf{JavaEE}, Bouncycastle, REST, WebUI)
-	\item Erweiterung des Backends eines KfZ-Ferndiagnosesystems (\textbf{JavaEE})
-	\item Refactoring des bestehenden Backends eines KfZ-Ferndiagnosesystems (\textbf{JavaEE})
+	\item Aufbau eines Cert-Service für Device-Zertifikate (JavaEE, Bouncycastle, REST, WebUI)
+	\item Erweiterung des Backends eines KfZ-Ferndiagnosesystems (JavaEE)
+	\item Refactoring des bestehenden Backends eines KfZ-Ferndiagnosesystems (JavaEE)
 \end{itemize}}
 
 \cventry{11/11--06/14}{Geschäftsführer}{Gesellschafter}{Erlangen}{beECO GmbH}%
@@ -135,12 +129,12 @@
 	\item Entwicklung eines verteilten Systems mit folgenden Komponenten
 	\begin{itemize}
 		\item Konfiguration einer Zentraleinheit (Embedded Industrial PC, Linux)
-		\item Impementierung der OSGi-Services für KWK-Optimierung (\textbf{Java}, OSGi/Equinox)
+		\item Implementierung der OSGi-Services für KWK-Optimierung (Java, OSGi/Equinox)
 		\item Erfassung von KWK-Kraftwerksdaten (Embedded uC Knoten , Ethernet, PoE)
-		\item Prognose der Folgetage auf Basis von Wetterdaten und KNN (\textbf{Java}, Encog)
-		\item Integration des Simulationskerns aus studentischer Arbeit (\textbf{Java}, OSGi/Equinox)
+		\item Prognose der Folgetage auf Basis von Wetterdaten und KNN (Java, Encog)
+		\item Integration des Simulationskerns aus studentischer Arbeit (Java, OSGi/Equinox)
 		\item VPN zur Fernwartung und Verbindung mit Backend (OpenVPN)
-		\item Aufbau der zentralen Server-Infrastruktur (ETL z.B. GRIB-Wetterdaten; \textbf{JavaEE})
+		\item Aufbau der zentralen Server-Infrastruktur (ETL z.B. GRIB-Wetterdaten; JavaEE)
 		\item Over-The-Air-Update aller Komponenten (AVR ETH-Bootloader, OSGi-Services, Linux-Basis)
 	\end{itemize}
 \end{itemize}}
@@ -148,17 +142,17 @@
 \cventry{03/12--02/14}{Angestellter}{Wissenschaftlicher Mitarbeiter, Stipendiat}{Erlangen}{Lehrstuhl für Sensorik LSE, Friedrich-Alexander-Universität Erlangen-Nürnberg}%
 {\begin{itemize}
 	\item Förderprogramm FLÜGGE-Bayern (Existenzgründung, Projekt beECO)
-	\item Erweiterung des Prototypen für Energiemanagement (\textbf{Java}, OSGi/Equinox)
+	\item Erweiterung des Prototypen für Energiemanagement (Java, OSGi/Equinox)
 	\item Betreuung von Studentischen Arbeiten
 	\begin{itemize}
-		\item Implementierung eines Event-basierten Simulationskerns (\textbf{Java})
+		\item Implementierung eines Event-basierten Simulationskerns (Java)
 	\end{itemize}
 \end{itemize}}
 
 \cventry{03/11--02/12}{Stipendiat}{Selbstständiger}{Erlangen}{Lehrstuhl für Sensorik LSE, Friedrich-Alexander-Universität Erlangen-Nürnberg}%
 {\begin{itemize}
 	\item EXIST-Gründerstipendium (Projekt ambience, später beECO)
-	\item Implementierung eines Prototypen für Energiemanagement (\textbf{Java}, OSGi/Equinox)
+	\item Implementierung eines Prototypen für Energiemanagement (Java, OSGi/Equinox)
 \end{itemize}}
 
 \cventry{12/07--12/10}{Angestellter}{Wissenschaftlicher Mitarbeiter, Doktorand}{Erlangen}{Lehrstuhl für Zuverlässige Schaltungen und Systeme LZS (ehem. LRS), Friedrich-Alexander-Universität Erlangen-Nürnberg}%
@@ -167,8 +161,8 @@
 	\begin{itemize}
 		\item Organisation des Arbeitspakets Ressourcenplanung und Modellierung
 		\item Entwicklung eines Konzepts zur systemunabhängigen Testbeschreibung
-		\item Implementierung einer Bibliothek zur Verarbeitung von ATML (\textbf{Java})
-		\item Prototyperstellung für Ressourcenplanung und Testprogrammsynthese (\textbf{Java})
+		\item Implementierung einer Bibliothek zur Verarbeitung von ATML (Java)
+		\item Prototyperstellung für Ressourcenplanung und Testprogrammsynthese (Java)
 		\item Implementierung von generischen Instrumententreibern (LabView)
 		\item Modellierung \& Simulation: Prüfling, Schnittstellen, Testsystem (SystemC-AMS, VHDL-AMS)
 	\end{itemize}
@@ -220,9 +214,8 @@
 	\item Geschäftsführung -- Technik und Einkauf
 	\item Erweiterung des Shopsystems osCommerce zur Anbindung von Großhändlern (PHP)
 	\item Erweiterung des Shopsystems um einfache Warenwirtschaft (PHP)
-	\item Automatisierte, stündliche Preis- und Verfügbarkeits-Aktualisierung (ETL, >25.000 Artikel)
-\end{itemize}
-}
+	\item Automatisierte, stündliche Preis- und Verfügbarkeits-Aktualisierung (ETL, $>$25.000 Artikel)
+\end{itemize}}
 
 %\cventry{2000--2003 (Ferienzeiten)}{Ferienarbeiter}{Facharbeiter, Energieelektroniker}{Lohr}{Bosch Rexroth AG}%
 %{\begin{itemize}
@@ -273,10 +266,10 @@ Inbetriebnahme}
 \section{EDV-Kenntnisse}
 \cvline{Dev-Tools}{JIRA, Confluence, Bitbucket, GIT, Subversion}
 \cvline{Office}{MS Office (inkl. VBA), iWork, OpenOffice/LibreOffice, LaTeX, Scribus}
-\cvline{SW-Entw.}{Java (Eclipse PDE, EMF,...), C, C++, PHP, Bash, LabView, u.a.}
+\cvline{SW-Entw.}{Python, (Eclipse PDE, EMF,...), C, C++, PHP, Bash, LabView, u.a.}
 \cvline{Embedded}{STMCubeMX/IDE, uVision, PlatformIO, u.a.}
 \cvline{E-Tech/CAD}{VHDL (Xilinx ISE, ModelSim, Lattice ispLEVER), SystemC (AMS), KiCAD, Eagle, Target!3001, LTspice, Pspice, FreeCAD, u.a.}
-\cvline{Betr.-Syst.}{Windows, Unix (Linux, Solaris), Mac OS X; Embedded: Linux, FreeRTOS, picoOS}
+\cvline{Betr.-Syst.}{Windows, Unix (Linux, Solaris), Mac OS X; Embedded: Linux, FreeRTOS}
 \cvline{Dienste}{MySQL, Apache, Samba, Maven, Jenkins, OpenVPN, Tomcat, u.a.}
 \cvline {Fortbildungen}{Scrum-Master}
 
@@ -295,18 +288,21 @@ Inbetriebnahme}
 \cvline{\footnotesize AUTOTEST'09}{\small Bridge the Gap between Simulation and Test: An OSA-Compliant Virtual Test Environment}
 \cvline{DATE'09}{\small A Novel Approach to Entirely Integrate Virtual Test into Test Development Flow}
 \cvline{TuZ'09}{\small Vollständige Integration des virtuellen Tests in den Entwurfsprozess integrierter Schaltungen}
+\cvline{BLOG}{\small https://www.the78mole.de}
 
 %%%%%%%%%%%%%%%%%%
 \section{Vereine \& Verbände}
 
-\cvline{VDE}{Verband der Elektrotechnik Elektronik Informationstechnik e.V., \newline{}Informationstechnische Gesellschaft (ITG)}
+\cvline{ZAM}{Zentrum für Austausch und Machen - Betreiberverein ZAM e.V.}
 \cvline{EWERH}{Energiewende ERHlangen e.V. (Vorstand, Schatzmeister)}
+\cvline{BUND}{Bund für Umwelt und Naturschutz Deutschland e.V.}
+\cvline{VDE}{Verband der Elektrotechnik Elektronik Informationstechnik e.V., \newline{}Informationstechnische Gesellschaft (ITG)}
 \cvline{DELUG}{Deutsche Linux User Group}
 
 %%%%%%%%%%%%%%%%%%
 \section{Interessen}
 \cvline{}{Schaltungsentwurf, Freie Software, 3D-Druck, handwerkliche Tätigkeiten, Heimwerken}
-\cvline{}{Elektromobilität, Fahrrad fahren, Billard, Bergwandern, Kochen, Lesen}
+\cvline{}{Bloggen, Elektromobilität, Fahrrad fahren, Billard, Smart Home, Kochen, Lesen}
 
 % Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
 %\nocite{*}
