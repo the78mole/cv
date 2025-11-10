@@ -133,7 +133,7 @@ jobs:
           - PDF wurde automatisch aus LaTeX-Quelle generiert
           - Automatisches Semantic Versioning basierend auf Commits
 
-          **📋 [Vollständiges Changelog anzeigen](https://github.com/${{ github.repository }}/compare/${{ steps.version.outputs.previous_version }}...${{ steps.version.outputs.version_tag }})**
+          **📋 [Vollständiges Changelog anzeigen](https://github.com/${{ github.repository }}/compare/v${{ steps.version.outputs.previous_version }}...v${{ steps.version.outputs.version_tag }})**
         draft: false
         prerelease: false
         files: |
