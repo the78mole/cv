@@ -9,6 +9,10 @@ on:
       - master  # Triggert bei Pull Requests auf master branch
   workflow_dispatch:  # Erlaubt manuelles Ausführen
 
+permissions:
+  contents: write  # Benötigt für Release-Erstellung
+  packages: read   # Benötigt für Docker-Images
+
 jobs:
   pre-commit:
     name: Pre-commit Checks
@@ -61,16 +65,19 @@ jobs:
 
     - name: Build PDF with LaTeX
       run: |
+        # Eindeutiger Container-Name mit GitHub Run ID
+        CONTAINER_NAME="latex-build-${{ github.run_id }}"
+
         # Erstelle PDF mit xu-cheng/texlive-full Image (benannte Container für Copy)
-        docker run --name latex-build \
+        docker run --name $CONTAINER_NAME \
           -v ${{ github.workspace }}:/workspace \
           -w /workspace \
           ghcr.io/xu-cheng/texlive-full:latest \
           sh -c "pdflatex -interaction=nonstopmode -file-line-error Lebenslauf.tex && pdflatex -interaction=nonstopmode -file-line-error Lebenslauf.tex"
 
         # Kopiere PDF aus Container (für ACT-Kompatibilität)
-        docker cp latex-build:/workspace/Lebenslauf.pdf ./Lebenslauf.pdf || echo "Failed to copy PDF from container"
-        docker rm latex-build || echo "Failed to remove container"
+        docker cp $CONTAINER_NAME:/workspace/Lebenslauf.pdf ./Lebenslauf.pdf || echo "Failed to copy PDF from container"
+        docker rm $CONTAINER_NAME || echo "Failed to remove container"
 
         # Prüfe ob PDF erfolgreich kopiert wurde
         ls -la *.pdf || echo "No PDF files found after Docker run"
