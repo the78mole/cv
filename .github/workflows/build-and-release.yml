@@ -53,7 +53,7 @@ jobs:
       run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
 
     - name: Upload PDF as Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: lebenslauf-pdf
         path: "Lebenslauf.pdf"
