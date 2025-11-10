@@ -1,0 +1,71 @@
+name: Build PDF and Create Release
+
+on:
+  push:
+    branches:
+      - master  # Triggert bei Push auf master branch
+  workflow_dispatch:  # Erlaubt manuelles Ausführen
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Benötigt für semantic versioning
+        
+    - name: Generate semantic version tag
+      id: version
+      uses: paulhatch/semantic-version@v5.4.0
+      with:
+        tag_prefix: "v"
+        major_pattern: "(MAJOR)"
+        minor_pattern: "(MINOR)"
+        version_format: "${major}.${minor}.${patch}"
+        change_path: "."
+        namespace: ""
+        bump_each_commit: false
+        search_commit_body: false
+        
+    - name: Build PDF with LaTeX container
+      run: |
+        docker pull ghcr.io/the78mole/latex:latest
+        docker run --rm -v $(pwd):/workspace -w /workspace ghcr.io/the78mole/latex:latest make pdf
+      
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+      
+    - name: Create Release
+      id: create_release
+      if: ${{ !env.ACT }}
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.version.outputs.version_tag }}
+        release_name: Lebenslauf ${{ steps.version.outputs.version_tag }}
+        body: |
+          Automatisch generierter Lebenslauf vom ${{ steps.date.outputs.date }}
+          
+          **Version:** ${{ steps.version.outputs.version_tag }}
+          **Previous Version:** ${{ steps.version.outputs.previous_version }}
+          
+          ## Änderungen
+          - PDF wurde automatisch aus LaTeX-Quelle generiert
+          - Automatisches Semantic Versioning basierend auf Commits
+        draft: false
+        prerelease: false
+        
+    - name: Upload PDF to Release
+      if: ${{ !env.ACT }}
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./Lebenslauf.pdf
+        asset_name: Lebenslauf_Daniel_Glaser_${{ steps.version.outputs.version_tag }}_${{ steps.date.outputs.date }}.pdf
+        asset_content_type: application/pdf
