@@ -1,0 +1,18 @@
+[project]
+name = "cv-tools"
+version = "0.1.0"
+description = "LaTeX CV processing tools for release notes"
+requires-python = ">=3.9"
+dependencies = [
+    "TexSoup>=0.3.1",
+]
+
+[project.scripts]
+extract-current = "cv_tools.extract_current:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []

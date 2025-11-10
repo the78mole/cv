@@ -5,3 +5,6 @@
 *.SyncTemp
 *.tcp
 *.out
+
+__pycache__/
+*.pyc

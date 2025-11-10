@@ -52,6 +52,19 @@ jobs:
       id: date
       run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
 
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: "latest"
+
+    - name: Extract current CV positions
+      id: cv_positions
+      run: |
+        cd scripts
+        echo "positions<<EOF" >> $GITHUB_OUTPUT
+        uv run extract-current ../Lebenslauf.tex >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
     - name: Upload PDF as Artifact
       uses: actions/upload-artifact@v5
       with:
@@ -76,6 +89,9 @@ jobs:
 
           **Version:** ${{ steps.version.outputs.version_tag }}
           **Previous Version:** ${{ steps.version.outputs.previous_version }}
+
+          ## Aktuelle Positionen
+          ${{ steps.cv_positions.outputs.positions }}
 
           ## Änderungen
           - PDF wurde automatisch aus LaTeX-Quelle generiert
