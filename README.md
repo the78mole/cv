@@ -1,12 +1,12 @@
 # Lebenslauf - Daniel Glaser
 
+🇩🇪 **Deutsch** | [🇺🇸 English](README_EN.md)
+
 [![Build PDF and Create Release](https://github.com/the78mole/cv/actions/workflows/build-and-release.yml/badge.svg?branch=master)](https://github.com/the78mole/cv/actions/workflows/build-and-release.yml)
 [![Latest Release](https://img.shields.io/github/v/release/the78mole/cv)](https://github.com/the78mole/cv/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PDF Download](https://img.shields.io/badge/PDF-Download-blue)](https://github.com/the78mole/cv/releases/latest)
 [![LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
-[![GitHub last commit](https://img.shields.io/github/last-commit/the78mole/cv)](https://github.com/the78mole/cv/commits/master)
-[![GitHub repo size](https://img.shields.io/github/repo-size/the78mole/cv)](https://github.com/the78mole/cv)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 > **Automatisch generierter LaTeX-Lebenslauf mit CI/CD Pipeline**
