@@ -16,3 +16,15 @@ build-backend = "hatchling.build"
 
 [tool.uv]
 dev-dependencies = []
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]  # Skip assert_used test
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.black]
+line-length = 88
+target-version = ['py39']

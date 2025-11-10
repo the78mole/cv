@@ -1,0 +1,37 @@
+# LaTeX indentation settings
+defaultIndent: "  "
+alwaysLookforSplitBraces: 1
+alwaysLookforSplitBrackets: 1
+indentPreamble: 1
+indentAfterHeadings:
+  part:
+    indentAfterThisHeading: 0
+  chapter:
+    indentAfterThisHeading: 0
+  section:
+    indentAfterThisHeading: 0
+  subsection:
+    indentAfterThisHeading: 0
+  subsection*:
+    indentAfterThisHeading: 0
+  subsubsection:
+    indentAfterThisHeading: 0
+
+environments:
+  document:
+    BeginStartsOnOwnLine: 1
+    BodyStartsOnOwnLine: 1
+    EndStartsOnOwnLine: 1
+    EndFinishesWithLineBreak: 1
+  itemize:
+    BeginStartsOnOwnLine: 1
+    BodyStartsOnOwnLine: 1
+    EndStartsOnOwnLine: 1
+    EndFinishesWithLineBreak: 1
+
+commands:
+  cventry:
+    BeginStartsOnOwnLine: 1
+    BodyStartsOnOwnLine: 0
+    EndStartsOnOwnLine: 0
+    EndFinishesWithLineBreak: 1

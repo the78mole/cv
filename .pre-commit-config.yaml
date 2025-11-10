@@ -1,0 +1,78 @@
+# Pre-commit configuration for LaTeX CV project
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '\.pdf$'
+      - id: end-of-file-fixer
+        exclude: '\.pdf$'
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-added-large-files
+        args: ['--maxkb=5000']  # Allow PDFs up to 5MB
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # Python-specific checks
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+        files: ^scripts/.*\.py$
+        language_version: python3
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        files: ^scripts/.*\.py$
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+        files: ^scripts/.*\.py$
+        args: ['--max-line-length=88', '--extend-ignore=E203,W503']
+
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.10
+    hooks:
+      - id: bandit
+        files: ^scripts/.*\.py$
+        args: ['-c', 'scripts/pyproject.toml']
+
+  # LaTeX checks
+  - repo: https://github.com/cmhughes/latexindent.pl
+    rev: V3.24.4
+    hooks:
+      - id: latexindent
+        files: '\.tex$'
+        args: ['-w', '-s']
+
+  # Markdown checks
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.42.0
+    hooks:
+      - id: markdownlint
+        args: ['--fix']
+        exclude: 'scripts/.*\.md$'  # Skip generated markdown in scripts
+
+  # GitHub Actions workflow validation
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.3
+    hooks:
+      - id: actionlint
+
+  # Simple security check - no baseline needed
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        exclude: '\.pdf$|\.png$|\.log$|\.aux$'
