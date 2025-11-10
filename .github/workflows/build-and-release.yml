@@ -4,10 +4,13 @@ on:
   push:
     branches:
       - master  # Triggert bei Push auf master branch
+  pull_request:
+    branches:
+      - master  # Triggert bei Pull Requests auf master branch
   workflow_dispatch:  # Erlaubt manuelles Ausführen
 
 jobs:
-  build-and-release:
+  build-and-release-pdf:
     runs-on: ubuntu-latest
 
     steps:
@@ -57,12 +60,11 @@ jobs:
         retention-days: 30
 
     - name: Prepare PDF for Release
-      if: ${{ !env.ACT }}
       run: |
         cp "Lebenslauf.pdf" "Lebenslauf_Daniel_Glaser_${{ steps.version.outputs.version_tag }}_${{ steps.date.outputs.date }}.pdf"
 
     - name: Create Release and Upload PDF
-      if: ${{ !env.ACT }}
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !env.ACT
       uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
