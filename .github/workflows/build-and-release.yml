@@ -9,6 +9,10 @@ on:
       - master  # Triggert bei Pull Requests auf master branch
   workflow_dispatch:  # Erlaubt manuelles Ausführen
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false  # Queue runs instead of cancelling to avoid duplicate releases
+
 permissions:
   contents: write  # Benötigt für Release-Erstellung
   packages: read   # Benötigt für Docker-Images
@@ -112,6 +116,19 @@ jobs:
       run: |
         cp "Lebenslauf.pdf" "Lebenslauf_Daniel_Glaser_${{ steps.version.outputs.version_tag }}_${{ steps.date.outputs.date }}.pdf"
 
+    - name: Create and push version tag
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        VERSION="${{ steps.version.outputs.version_tag }}"
+        if git ls-remote --tags origin "refs/tags/${VERSION}" | grep -q "${VERSION}"; then
+          echo "Tag ${VERSION} already exists remotely, skipping"
+        else
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${VERSION}"
+          git push origin "${VERSION}"
+        fi
+
     - name: Create Release and Upload PDF
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: softprops/action-gh-release@v3
@@ -133,7 +150,7 @@ jobs:
           - PDF wurde automatisch aus LaTeX-Quelle generiert
           - Automatisches Semantic Versioning basierend auf Commits
 
-          **📋 [Vollständiges Changelog anzeigen](https://github.com/${{ github.repository }}/compare/v${{ steps.version.outputs.previous_version }}...v${{ steps.version.outputs.version_tag }})**
+          **📋 [Vollständiges Changelog anzeigen](https://github.com/${{ github.repository }}/compare/v${{ steps.version.outputs.previous_version }}...${{ steps.version.outputs.version_tag }})**
         draft: false
         prerelease: false
         files: |
