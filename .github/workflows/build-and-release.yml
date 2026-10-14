@@ -116,17 +116,28 @@ jobs:
       run: |
         cp "Lebenslauf.pdf" "Lebenslauf_Daniel_Glaser_${{ steps.version.outputs.version_tag }}_${{ steps.date.outputs.date }}.pdf"
 
-    - name: Create and push version tag
+    - name: Create version tag
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VERSION: ${{ steps.version.outputs.version_tag }}
       run: |
-        VERSION="${{ steps.version.outputs.version_tag }}"
-        if git ls-remote --tags origin "refs/tags/${VERSION}" | grep -q "${VERSION}"; then
-          echo "Tag ${VERSION} already exists remotely, skipping"
+        # Tag ueber die Git-Refs-API anlegen, nicht per git push.
+        # GITHUB_TOKEN darf keine Refs pushen, deren Commit
+        # .github/workflows/** aendert ("refusing to allow a GitHub App to
+        # create or update workflow ... without `workflows` permission").
+        # Das traf jeden Renovate-Merge, der Action-Versionen anhebt.
+        # Die Refs-API zeigt nur auf einen bestehenden Commit und faellt
+        # nicht unter diese Beschraenkung; eine zusaetzliche Permission
+        # braucht es dafuer nicht (`workflows` gibt es als GITHUB_TOKEN-
+        # Scope ohnehin nicht, das liesse sich nur per PAT loesen).
+        if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${VERSION}" >/dev/null 2>&1; then
+          echo "Tag ${VERSION} existiert schon, wird uebersprungen"
         else
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag "${VERSION}"
-          git push origin "${VERSION}"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/git/refs" \
+            -f "ref=refs/tags/${VERSION}" \
+            -f "sha=${GITHUB_SHA}"
+          echo "Tag ${VERSION} auf ${GITHUB_SHA} angelegt"
         fi
 
     - name: Create Release and Upload PDF
